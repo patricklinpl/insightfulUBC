@@ -1,0 +1,6 @@
+{
+	"name": "insightfulUBC",
+	"description": "UBC data",
+	"repository": "https://github.com/patricklinpl/insightfulUBC",
+	"keywords": ["node","insightUBC", "CPSC310", "UBC"],
+}
