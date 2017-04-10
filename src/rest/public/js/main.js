@@ -42,7 +42,7 @@ function numberDropOptions(selectProperty, selectVal, property, id) {
         + ">" + "</option>");
     return new Promise(function (fulfill, reject) {
         $.ajax({
-            url: "http://localhost:4321/query",
+            url: "/query",
             type: "POST",
             data: JSON.stringify(query),
             contentType: "application/json",
@@ -84,7 +84,7 @@ function dropDownOptions(id, property) {
     var tempArray = [];
     return new Promise(function (fulfill, reject) {
         $.ajax({
-            url: "http://localhost:4321/query",
+            url: "/query",
             type: "POST",
             data: JSON.stringify(query),
             contentType: "application/json",
@@ -109,7 +109,7 @@ function dropDownOptions(id, property) {
 function sendQuery(query, dialog, classID, num) {
     var filterSection = [];
     $.ajax({
-        url: "http://localhost:4321/query",
+        url: "/query",
         type: "POST",
         data: JSON.stringify(query),
         contentType: "application/json",
