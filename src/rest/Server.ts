@@ -4,7 +4,6 @@
  */
 
 import restify = require('restify');
-
 import Log from "../Util";
 import {InsightResponse} from "../controller/IInsightFacade";
 import RESTHandler from "./RESTHandler";
@@ -92,13 +91,4 @@ export default class Server {
             }
         });
     }
-
-    // The next two methods handle the echo service.
-    // These are almost certainly not the best place to put these, but are here for your reference.
-    // By updating the Server.echo function pointer above, these methods can be easily moved.
-
-
-    //MOVED ECHO AND PERFORM ECHO TO RESTHandler.ts
-
-
 }
