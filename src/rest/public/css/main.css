@@ -1,0 +1,31 @@
+/**
+ * Created by patricklin on 2017-03-28.
+ */
+
+label {
+    display: block;
+}
+
+select {
+    width: 200px;
+}
+
+.overflow {
+    height: 200px;
+}
+
+.equationDropDown {
+    height: 85px;
+}
+
+.courseIDDropDown {
+    height: 160px;
+}
+
+.hiddendiv {
+    display: none;
+}
+
+.visiblediv {
+    display: block;
+}

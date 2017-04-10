@@ -1,0 +1,15 @@
+src/*.js
+src/*.map
+src/**/*.js
+src/**/*.map
+test/*.js
+test/*.map
+test/DataHandlerSpec.ts
+npm-debug.log
+mochawesome-reports/
+node_modules/
+.idea/
+.yarnclean
+coverage/
+.nyc_output/
+data/

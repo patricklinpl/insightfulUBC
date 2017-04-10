@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>insightUBC</title>
+    <link rel="icon" type="image/png" href="../public/css/images/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="../public/css/images/favicon-16x16.png" sizes="16x16"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../public/css/jquery-ui.css" rel="stylesheet">
+    <link href="../public/css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://use.fontawesome.com/33abfe1ba7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.4/d3.js"></script>
+    <script src="../public/js/main.js"></script>
+    <script src="../public/js/courses.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><span aria-hidden="true">
+            </span> <i class="fa fa-university fa-1x" style="color: dimgrey;" aria-hidden="true"></i>
+                insightUBC</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/scheduler">Scheduler</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Tabs -->
+<div class="container">
+    <h2>Courses Explorer</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Search for Section</a></li>
+            <li><a href="#tabs-2">Search for Courses</a></li>
+        </ul>
+        <div id="tabs-1">
+            <form class="form-horizontal" id="searchSection">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Department</label>
+                    <div class="col-sm-6">
+                        <select id="deptName">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Course Number</label>
+                    <div class="col-sm-6">
+                        <select id="courseID"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="stitle" title="Letters Only"
+                               placeholder="sftwr constructn">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Instructor</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="prof" title="Letters Only"
+                               placeholder="carter, paul martin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Size</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="ssize" title="Numbers Only" placeholder="50">
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="sequation">
+                            <option value="=" selected>=</option>
+                            <option value=">">></option>
+                            <option value="<"><</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Order By</label>
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline"><input type="checkbox" id="secAvg">Average</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="secPass">Pass</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="secFail">Fail</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="secSize">Size</label>
+                    </div>
+                </div>
+            </form>
+            <div style="text-align: center;">
+                <input type="button" value="Submit Query" class="btn btn-primary"
+                       onclick="sectionQueryController()"/></div>
+        </div>
+        <div id="tabs-2">
+            <form class="form-horizontal" id="searchCourses">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Department</label>
+                    <div class="col-sm-6">
+                        <select id="cDeptName">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Course Number</label>
+                    <div class="col-sm-6">
+                        <select id="ccourseID"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="title" title="Letters Only"
+                               placeholder="sftwr constructn">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Size</label>
+                    <div class="col-sm-1">
+                        <input type="text" class="form-control" id="size" title="Numbers Only" placeholder="50">
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="equation">
+                            <option value="=" selected>=</option>
+                            <option value=">">></option>
+                            <option value="<"><</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Order By</label>
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline"><input type="checkbox" id="cAvg">Average</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="cPass">Pass</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="cFail">Fail</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="cSize">Size</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="cSection">Section</label>
+                    </div>
+                </div>
+            </form>
+            <div style="text-align: center;">
+                <input type="button" value="Submit Query" class="btn btn-primary"
+                       onclick="courseQueryController()"/></div>
+        </div>
+    </div>
+</div>
+<div align="center" id="chartContainer" style="height: 300px; width:500px; margin:0 auto;"></div>
+<div class="container">
+    <div class="ui-widget-content">
+        <h2>Result</h2>
+        <div class="courseResult"></div>
+    </div>
+</div>
+</body>
+</html>
