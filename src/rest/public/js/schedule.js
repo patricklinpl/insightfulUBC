@@ -291,7 +291,7 @@ $(function () {
             var aData = [];
             var roomsData = [];
             $.ajax({
-                url: "http://localhost:4321/query",
+                url: "/query",
                 type: "POST",
                 data: JSON.stringify(latLonQuery),
                 contentType: "application/json",
@@ -311,7 +311,7 @@ $(function () {
             }
 
             $.ajax({
-                url: "http://localhost:4321/query",
+                url: "/query",
                 type: "POST",
                 data: JSON.stringify(allLatLonQuery),
                 contentType: "application/json",
@@ -341,7 +341,7 @@ $(function () {
         var roomQuery = buildRoomsQuery(shortname, resArray, filterRoom);
         $.when(
             $.ajax({
-                url: "http://localhost:4321/query",
+                url: "/query",
                 type: "POST",
                 data: JSON.stringify(inputCourseQuery),
                 contentType: "application/json",
@@ -350,7 +350,7 @@ $(function () {
                 alert(e.responseText);
             }),
             $.ajax({
-                url: "http://localhost:4321/query",
+                url: "/query",
                 type: "POST",
                 data: JSON.stringify(lyCourseQuery),
                 contentType: "application/json",
@@ -359,7 +359,7 @@ $(function () {
                 alert(e.responseText);
             }),
             $.ajax({
-                url: "http://localhost:4321/query",
+                url: "/query",
                 type: "POST",
                 data: JSON.stringify(roomQuery),
                 contentType: "application/json",

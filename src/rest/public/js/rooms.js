@@ -237,7 +237,7 @@ function getRoomsData(query) {
     return new Promise(function (fulfill, reject) {
         var filterRooms = [];
         $.ajax({
-            url: "http://localhost:4321/query",
+            url: "/query",
             type: "POST",
             data: JSON.stringify(query),
             contentType: "application/json",
@@ -291,7 +291,7 @@ function getLocForBuilding(locName) {
         };
         var filterLocation = [];
         $.ajax({
-            url: "http://localhost:4321/query",
+            url: "/query",
             type: "POST",
             data: JSON.stringify(query),
             contentType: "application/json",
@@ -314,7 +314,7 @@ function getLocForBuilding(locName) {
 function sendQueryWithOutDialog(query, classID) {
     var filterSection = [];
     $.ajax({
-        url: "http://localhost:4321/query",
+        url: "/query",
         type: "POST",
         data: JSON.stringify(query),
         contentType: "application/json",
