@@ -28,7 +28,7 @@
     "@types/core-js": "^0.9.35",
     "@types/jszip": "0.0.32",
     "@types/mocha": "^2.2.33",
-    "@types/node": "^6.11.1",
+    "@types/node": "^6.0.52",
     "@types/parse5": "^2.2.34",
     "@types/restify": "^2.0.X",
     "chai": "^3.5.0",
