@@ -1,2 +1,2 @@
-"use strict";
-//# sourceMappingURL=IInsightFacade.js.map
+'use strict'
+// # sourceMappingURL=IInsightFacade.js.map
